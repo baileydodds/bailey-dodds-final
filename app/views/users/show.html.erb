@@ -1,0 +1,56 @@
+<div>
+  <div>
+    <h1>
+      User #<%= @the_user.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/users">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user/<%= @the_user.id %>">
+          Delete user
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user
+    </h2>
+
+    <form action="/modify_user/<%= @the_user.id %>"  method="post" >
+      <button>
+        Update user
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
