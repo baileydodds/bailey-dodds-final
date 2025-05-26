@@ -19,10 +19,10 @@ class PerformancesController < ApplicationController
 
   def create
     the_performance = Performance.new
-    the_performance.created_at = params.fetch("query_created_at")
-    the_performance.updated_at = params.fetch("query_updated_at")
+    # the_performance.created_at = params.fetch("query_created_at")
+    # the_performance.updated_at = params.fetch("query_updated_at")
     the_performance.habit_id = params.fetch("query_habit_id")
-    the_performance.user_id = params.fetch("query_user_id")
+    # the_performance.user_id = params.fetch("query_user_id")
     the_performance.performed_on = params.fetch("query_performed_on")
 
     if the_performance.valid?
@@ -59,4 +59,10 @@ class PerformancesController < ApplicationController
 
     redirect_to("/performances", { :notice => "Performance deleted successfully."} )
   end
+
+#----------------MY CUSTOM CODE-----------------------
+  def log
+    render({ :template => "performances/log_performance" })
+  end
+#----------------END OF MY CUSTOM CODE-----------------------
 end

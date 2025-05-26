@@ -1,0 +1,102 @@
+
+<h1>What exercise did you complete today?</h1>
+<hr></hr>
+<%= form_with(model: @performance, local: true) do |form| %>
+  <table border="1">
+    <tr>
+      <th>Workout</th>
+      <th>Completed on</th>
+<!--      <th>Submit</th>-->
+    </tr>
+
+    <tr>
+      <td>
+        <%= form.select :habit_name, Habit.all.pluck(:habit_name), prompt: "Select a habit" %>
+      </td>
+
+
+      <td>
+        <%= form.date_field :performed_on %>
+      </td>
+    
+<!--      <td>-->
+        <%#= form.check_box :log_workout %>
+<!--      </td>-->
+    </tr>
+  </table>
+
+  <%= form.submit %>
+<% end %>
+
+<!--<hr></hr>
+<form action="/insert_performance" method="post">
+<table border="1">
+  <tr>
+    <th>
+      Workout
+    </th>
+
+    <th>
+      Completed on
+    </th>
+
+    <th>
+      Log Workout
+    </th>
+
+  </tr>
+
+  <tr>
+    <td>
+      <select name="day">
+        <option value="Back/Biceps">Back/Biceps</option>
+        <option value="Chest/Triceps">Chest/Triceps</option>
+        <option value="Legs">Legs</option>
+        <option value="Shoulders/Core">Shoulders/Core</option>        
+      </select>
+    </td>
+
+    <td>
+        <input type="date" id="performed_on_box" name="query_performed_on">
+    </td>
+
+    <td>
+      <button>
+        Log performance
+      </button>
+    </td>
+</table>
+</form>-->
+<!--    <td>Chest/Triceps</td>
+    <td>        
+        <form action="/insert_board" method="post">
+        <label for="habit_box"></label>
+        <button>Log workout</button></form>
+    </td>
+  </tr>  
+  <tr>
+    <td>Back/Biceps</td>
+    <td>
+        <form action="/insert_board" method="post">
+        <label for="habit_box"></label>
+        <button>Log workout</button></form>
+    </td>
+  </tr>
+  <tr>
+    <td>Legs</td>
+    <td>
+        <form action="/insert_board" method="post">
+        <label for="habit_box"></label>
+        <button>Log workout</button></form>
+    </td> 
+  </tr>
+  <tr>
+    <td>Shoulders/Core</td>
+    <td>
+        <form action="/insert_board" method="post">
+        <label for="habit_box"></label>
+        <button>Log workout</button></form>      
+    </td>
+  </tr>
+</table>
+-->

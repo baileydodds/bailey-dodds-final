@@ -66,5 +66,5 @@ Rails.application.routes.draw do
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
   get("/tracker", { :controller => "tracker", :action => "index" })
   # get "/your_first_screen" => "pages#first"
-  
+  get("/log_performance", { :controller => "performances", :action => "log" })  
 end

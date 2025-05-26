@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all performances
+      Log a workout
     </h1>
   </div>
 </div>
@@ -10,42 +10,52 @@
 
 <div>
   <div>
-    <h2>
+<!--    <h2>
       Add a new performance
-    </h2>
+    </h2>-->
 
     <form action="/insert_performance" method="post">
-      <div>
+<!--      <div>
         <label for="created_at_box">
           Created at
         </label>
 
         <input type="datetime-local" id="created_at_box" name="query_created_at">
-      </div>
+      </div>-->
 
-      <div>
+<!--      <div>
         <label for="updated_at_box">
           Updated at
         </label>
 
         <input type="datetime-local" id="updated_at_box" name="query_updated_at">
-      </div>
+      </div>-->
 
       <div>
         <label for="habit_id_box">
           Habit
         </label>
 
-        <input type="text" id="habit_id_box" name="query_habit_id">
+        <%= form.select :day, Date::DAYNAMES, prompt: "Select a day" %>
+
+<!--      <select name="habit">
+        <option value="Back_Biceps">Back/Biceps</option>
+        <option value="Chest_Triceps">Chest/Triceps</option>
+        <option value="Legs">Legs</option>
+        <option value="Shoulders/Core">Shoulders/Core</option>        
+      </select>
+
+        <input type="checkbox" id="habit_id_box" name="query_habit_id">
+-->
       </div>
 
-      <div>
+<!--      <div>
         <label for="user_id_box">
           User
         </label>
 
         <input type="text" id="user_id_box" name="query_user_id">
-      </div>
+      </div>-->
 
       <div>
         <label for="performed_on_box">
@@ -56,7 +66,7 @@
       </div>
 
       <button>
-        Create performance
+        Log workout
       </button>
     </form>
   </div>
