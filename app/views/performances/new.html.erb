@@ -1,0 +1,37 @@
+<div>
+  <div>
+    <h1>
+      Log a workout
+    </h1>
+  </div>
+</div>
+
+<hr> </hr>
+<div>
+<%= form_with(url:"/insert_performance", method: :post, model: @performance, local: true) do |form| %>
+  <table border="1">
+    <tr>
+      <th>Workout</th>
+      <th>Completed on</th>
+<!--      <th>Submit</th>-->
+    </tr>
+
+    <tr>
+      <td>
+        <%= form.select :habit_name, Habit.all.pluck(:habit_name), prompt: "Select a habit" %>
+      </td>
+
+
+      <td>
+        <%= form.date_field :performed_on %>
+      </td>
+    
+<!--      <td>-->
+        <%#= form.check_box :log_workout %>
+<!--      </td>-->
+    </tr>
+  </table>
+
+  <%= form.submit %>
+<% end %>
+</div>
