@@ -68,4 +68,5 @@ Rails.application.routes.draw do
   # get "/your_first_screen" => "pages#first"
   get("/log_performance", { :controller => "performances", :action => "log" }) 
   get("/new", { :controller => "performances", :action => "new" })  
+  get("/my_performances", { :controller => "tracker", :action => "show" })    
 end
