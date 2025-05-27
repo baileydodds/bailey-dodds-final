@@ -30,16 +30,15 @@ task({ :sample_data => :environment }) do
   habit.user_id = User.all.sample.id
   habit.save
 
-
-rand(10..50).times do
-      performance = Performance.new
-      performance.user_id = User.all.sample.id
-      performance.habit_id = habit.id
-      performance.performed_on = Faker::Date.backward(days: 120)
-      performance.created_at = Faker::Datetime.backward(days: 120)
-      performance.updated_at = Faker::Datetime.backward(days: 120)      
-      performance.save
-    end
+  rand(10..50).times do
+        performance = Performance.new
+        performance.user_id = User.all.sample.id
+        performance.habit_id = habit.id
+        performance.performed_on = Faker::Date.backward(days: 120)
+        performance.created_at = Faker::Datetime.backward(days: 120)
+        performance.updated_at = Faker::Datetime.backward(days: 120)      
+        performance.save
+      end
   end
 
 

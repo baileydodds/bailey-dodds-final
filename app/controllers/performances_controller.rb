@@ -19,11 +19,11 @@ class PerformancesController < ApplicationController
 
   def create
     the_performance = Performance.new
-    the_performance.created_at = params.fetch("query_created_at")
-    the_performance.updated_at = params.fetch("query_updated_at")
+    # the_performance.created_at = Time.now
+    # the_performance.updated_at = Time.now
+    the_performance.user_id = current_user.id
     the_performance.habit_id = params.fetch("query_habit_id")
-    # the_performance.user_id = params.fetch("query_user_id")
-    the_performance.habit_id = current_user.id
+    # the_performance.habit_name = params.fetch("query_habit_name")
     the_performance.performed_on = params.fetch("query_performed_on")
 
     if the_performance.valid?
@@ -38,17 +38,17 @@ class PerformancesController < ApplicationController
     the_id = params.fetch("path_id")
     the_performance = Performance.where({ :id => the_id }).at(0)
 
-    the_performance.created_at = params.fetch("query_created_at")
-    the_performance.updated_at = params.fetch("query_updated_at")
+    the_performance.created_at = Time.now
+    the_performance.updated_at = Time.now
     the_performance.habit_id = params.fetch("query_habit_id")
-    the_performance.user_id = params.fetch("query_user_id")
+    the_performance.user_id = current_user.id
     the_performance.performed_on = params.fetch("query_performed_on")
 
     if the_performance.valid?
       the_performance.save
-      redirect_to("/performances/#{the_performance.id}", { :notice => "Performance updated successfully."} )
+      redirect_to("/performances", { :notice => "Performance updated successfully."} )
     else
-      redirect_to("/performances/#{the_performance.id}", { :alert => the_performance.errors.full_messages.to_sentence })
+      redirect_to("/performances", { :alert => the_performance.errors.full_messages.to_sentence })
     end
   end
 

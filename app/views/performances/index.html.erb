@@ -14,7 +14,7 @@
     </h2>
 
     <form action="/insert_performance" method="post">
-      <div>
+<!--      <div>
         <label for="created_at_box">
           Created at
         </label>
@@ -31,13 +31,31 @@
       </div>
 
       <div>
-        <label for="habit_id_box">
+        <label for="habit_name_box">
           Habit
         </label>
 
-        <input type="text" id="habit_id_box" name="query_habit_id">
+        <input type="text" id="habit_name_box" name="query_habit_name">
 
+      </div>-->
+
+<!---------------CUSTOM FORM--------------->
+   <tr>
+      <td>
+        <label for="habit_id_box">
+          Select workout
+        </label>
+
+        <select name="query_habit_id" id="habit_id_box">Select a habit</option>
+          <option value="5">Back/Biceps</option>
+          <option value="6">Chest/Triceps</option>
+          <option value="7">Legs</option>
+          <option value="8">Shoulders/Core</option></select>
+      </td>
       </div>
+    </tr>
+<!---------------END OF CUSTOM FORM WITH DROPDOWN & LIMITED FIELDS--------------->
+
 
 <!--      <div>
         <label for="user_id_box">
@@ -45,14 +63,15 @@
         </label>
 
         <input type="text" id="user_id_box" name="query_user_id">
-      </div>-->
-
+      </div>
+-->
       <div>
         <label for="performed_on_box">
           Performed on
         </label>
 
         <input type="date" id="performed_on_box" name="query_performed_on">
+
       </div>
 
       <button>
@@ -67,7 +86,7 @@
   <div>
     <table border="1">
       <tr>
-        <th>
+<!--        <th>
           ID
         </th>
 
@@ -77,10 +96,10 @@
 
         <th>
           Updated at
-        </th>
+        </th>-->
 
         <th>
-          Habit
+          Habit Name
         </th>
 
         <th>

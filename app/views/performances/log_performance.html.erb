@@ -11,7 +11,7 @@
 
     <tr>
       <td>
-        <%= form.select :habit_name, Habit.all.pluck(:habit_name), prompt: "Select a habit" %>
+        <%= form.select :habit_name, Habit.all.pluck(:habit_name), url:"/insert_performance", method: :post, prompt: "Select a habit" %>
       </td>
 
 
