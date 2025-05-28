@@ -1,89 +1,30 @@
+  <nav>
+    <% if current_user != nil %>
+      <a href="/">Home</a>   
+      <a href="/performances">Go back</a>   
+      <a href="/users/edit">Edit profile</a>    
+      <a href="/performances">Log a Workout</a>   
+    <% else %>  
+      <a href="/">Sign in</a>        
+    <% end %> 
+  </nav>
+
+<hr></hr>
+
 <h1>My Workouts</h1>
 
-<hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-<!--        <th>
-          ID
-        </th>
+<hr></hr>
 
-        <th>
-          Created at
-        </th>
+<table border="1">
+  <tr>
+    <th>Habit Name</th>
+    <th>Total Workouts</th>
+  </tr>
 
-        <th>
-          Updated at
-        </th>-->
-
-        <th>
-          Workout Type
-        </th>
-
-<!--        <th>
-          User
-        </th>-->
-
-        <th>
-          Date
-        </th>
-
-<!--        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>-->
-      </tr>
-
-      <%# @list_of_performances.each do |a_performance| %>
-<!--      <tr>
-        <td>
-          <%#= a_performance.id %>-->
-<!--        </td>
-
-        <td>
-          <%#= a_performance.created_at %>-->
-<!--        </td>
-
-        <td>
-          <%#= a_performance.updated_at %>-->
-<!--        </td>
-
-        <td>
-          <%#= a_performance.habit_id %>-->
-<!--        </td>
-
-        <td>
-          <%#= a_performance.user_id %>-->
-<!--        </td>
-
-        <td>
-          <%#= a_performance.performed_on %>-->
-<!--        </td>
-
-        <td>
-          <%#= time_ago_in_words(a_performance.created_at) %> ago-->
-<!--        </td>
-        <td>
-          <%#= time_ago_in_words(a_performance.updated_at) %> ago-->
-<!--        </td>
-
-        <td>
-          <a href="/performances/<%#= a_performance.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <%# end %>-->
-<!--    </table>
-  </div>
-</div>
-
-<hr>
--->
+<% Habit.all.each do |habit| %>
+  <tr> 
+    <td> <%= habit.habit_name %> </td>
+    <td> <%= habit.performances.count %> </td> 
+  </tr>
+  <% end %>
+</table>

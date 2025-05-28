@@ -6,12 +6,11 @@
   </div>
 </div>
 
-<hr>
 <div>
   <div>
-    <h2>
+<!--    <h2>
       Add a new performance
-    </h2>
+    </h2>-->
 
     <form action="/insert_performance" method="post">
 <!--      <div>
@@ -82,6 +81,9 @@
 </div>
 
 <hr>
+
+<h2>My Past Workouts</h2>
+
 <div>
   <div>
     <table border="1">
@@ -102,21 +104,21 @@
           Habit Name
         </th>
 
-        <th>
+<!--        <th>
           User
-        </th>
+        </th>-->
 
         <th>
           Performed on
         </th>
 
-        <th>
+<!--        <th>
           Created at
         </th>
 
         <th>
           Updated at
-        </th>
+        </th>-->
 
         <th>
         </th>
@@ -124,36 +126,36 @@
 
       <% @list_of_performances.each do |a_performance| %>
       <tr>
-        <td>
-          <%= a_performance.id %>
-        </td>
+<!--        <td>-->
+          <%#= a_performance.id %>
+<!--        </td>
 
         <td>
-          <%= a_performance.created_at %>
-        </td>
+          <%#= a_performance.created_at %>-->
+<!--        </td>
 
         <td>
-          <%= a_performance.updated_at %>
-        </td>
+          <%#= a_performance.updated_at %>-->
+<!--        </td>-->
 
         <td>
-          <%= a_performance.habit_id %>
+          <%= a_performance.habit.habit_name %>
         </td>
 
-        <td>
-          <%= a_performance.user_id %>
-        </td>
+<!--        <td>-->
+          <%#= a_performance.user_id %>
+<!--        </td>-->
 
         <td>
           <%= a_performance.performed_on %>
         </td>
-
+<!--
         <td>
-          <%= time_ago_in_words(a_performance.created_at) %> ago
-        </td>
+          <%#= time_ago_in_words(a_performance.created_at) %> ago-->
+<!--        </td>
         <td>
-          <%= time_ago_in_words(a_performance.updated_at) %> ago
-        </td>
+          <%#= time_ago_in_words(a_performance.updated_at) %> ago-->
+<!--        </td>-->
 
         <td>
           <a href="/performances/<%= a_performance.id %>">

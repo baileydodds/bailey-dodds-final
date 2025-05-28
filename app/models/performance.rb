@@ -11,5 +11,5 @@
 #
 class Performance < ApplicationRecord
   belongs_to(:user, required: true, class_name: "User", foreign_key: "user_id", counter_cache: true)
-  belongs_to(:habit, required: true, class_name: "Habit", foreign_key: "habit_id", counter_cache: true)
+  belongs_to(:habit, required: true, class_name: "Habit", foreign_key: "habit_id")
 end

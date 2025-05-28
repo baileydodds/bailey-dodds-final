@@ -13,8 +13,11 @@
 <body>
   <nav>
   <% if current_user != nil %>
-    <a href="/users/sign_out">Sign out</a>   
-    <a href="/users/edit">Edit profile</a>    
+    <a href="/">Home</a>    
+    <a href="/my_performances">View workout summary</a>   
+    <a href="/users/sign_out">Sign out</a>
+    <a href="/users/edit">Edit profile</a>  
+   
 
   <% else %>  
     <a href="/users/sign_up">Sign up</a>

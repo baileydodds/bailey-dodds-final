@@ -28,7 +28,7 @@ class PerformancesController < ApplicationController
 
     if the_performance.valid?
       the_performance.save
-      redirect_to("/performances", { :notice => "Performance created successfully." })
+      redirect_to("/performances", { :notice => "Workout logged. Great work, keep it up!" })
     else
       redirect_to("/performances", { :alert => the_performance.errors.full_messages.to_sentence })
     end
@@ -69,5 +69,10 @@ class PerformancesController < ApplicationController
     render({ :template => "performances/new" })
   end
 
+  private
+
+  def performance_params
+    params.require(:performance).permit(:habit_name, :performed_on, :user_id)
+  end
 #----------------END OF MY CUSTOM CODE-----------------------
 end
