@@ -11,14 +11,57 @@
 
 <hr></hr>
 
-<h1>My Workouts</h1>
+<h1>Workout Summary</h1>
 
 <hr></hr>
 
-<table border="1">
+<h2>This Week</h2>
+
+<table border="1" style="text-align: center;">
   <tr>
-    <th>Habit Name</th>
-    <th>Total Workouts</th>
+    <th>Workout</th>
+    <th>Workouts this Week</th>
+  </tr>
+
+<% Habit.all.each do |habit_week| %>
+  <tr> 
+    <td> <%= habit_week.habit_name %> </td>
+    <td> <%= habit_week.performances.where(performed_on: Time.current.beginning_of_week..Time.current.end_of_week).count %> 
+    </td>
+
+  </tr>
+  <% end %>
+</table>
+
+
+<hr></hr>
+
+<h2>This Month</h2>
+
+<table border="1" style="text-align: center;">
+  <tr>
+    <th>Workout</th>
+    <th>Workouts this Month</th>
+  </tr>
+
+<% Habit.all.each do |habit_month| %>
+  <tr> 
+    <td> <%= habit_month.habit_name %> </td>
+    <td> <%= habit_month.performances.where(performed_on: Time.current.beginning_of_month..Time.current.end_of_month).count %> 
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+
+<hr></hr>
+
+<h2>All Time</h2>
+
+<table border="1" style="text-align: center;">
+  <tr>
+    <th>Workout</th>
+    <th>All Time # of Workouts</th>
   </tr>
 
 <% Habit.all.each do |habit| %>

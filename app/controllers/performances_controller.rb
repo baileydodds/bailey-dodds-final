@@ -19,8 +19,8 @@ class PerformancesController < ApplicationController
 
   def create
     the_performance = Performance.new
-    the_performance.created_at = Time.now
-    the_performance.updated_at = Time.now
+    the_performance.created_at = Time.now.strftime('%Y-%m-%d')
+    the_performance.updated_at = Time.now.strftime('%Y-%m-%d')
     the_performance.user_id = current_user.id
     the_performance.habit_id = params.fetch("query_habit_id")
     # the_performance.habit_name = params.fetch("query_habit_name")
@@ -37,8 +37,8 @@ class PerformancesController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_performance = Performance.where({ :id => the_id }).at(0)
-    the_performance.created_at = Time.now
-    the_performance.updated_at = Time.now
+    the_performance.created_at = Time.now.strftime('%Y-%m-%d')
+    the_performance.updated_at = Time.now.strftime('%Y-%m-%d')
     the_performance.habit_id = params.fetch("query_habit_id")
     the_performance.user_id = current_user.id
     the_performance.performed_on = params.fetch("query_performed_on")

@@ -46,10 +46,10 @@
         </label>
 
         <select name="query_habit_id" id="habit_id_box">Select a habit</option>
-          <option value="5">Back/Biceps</option>
-          <option value="6">Chest/Triceps</option>
-          <option value="7">Legs</option>
-          <option value="8">Shoulders/Core</option></select>
+          <option value="13">Back/Biceps</option>
+          <option value="14">Chest/Triceps</option>
+          <option value="15">Legs</option>
+          <option value="16">Shoulders/Core</option></select>
       </td>
       </div>
     </tr>
@@ -69,7 +69,7 @@
           Performed on
         </label>
 
-        <input type="date" id="performed_on_box" name="query_performed_on">
+        <input type="date" id="performed_on_box" name="query_performed_on" value="<%= Date.today %>" >
 
       </div>
 
@@ -82,11 +82,11 @@
 
 <hr>
 
-<h2>My Past Workouts</h2>
+<h2>All Past Workouts</h2>
 
 <div>
   <div>
-    <table border="1">
+    <table border="1" style="text-align: center;">
       <tr>
 <!--        <th>
           ID
@@ -112,6 +112,10 @@
           Performed on
         </th>
 
+        <th>
+          Details
+        </th>
+
 <!--        <th>
           Created at
         </th>
@@ -120,11 +124,9 @@
           Updated at
         </th>-->
 
-        <th>
-        </th>
       </tr>
 
-      <% @list_of_performances.each do |a_performance| %>
+      <% @list_of_performances.sort_by(&:performed_on).reverse.each do |a_performance| %>
       <tr>
 <!--        <td>-->
           <%#= a_performance.id %>
@@ -159,12 +161,13 @@
 
         <td>
           <a href="/performances/<%= a_performance.id %>">
-            Show details
+            Show workout details
           </a>
         </td>
       </tr>
       <% end %>
     </table>
+
   </div>
 </div>
 
